@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Төрт мезгіл және киімдер ойыны</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Times New Roman шрифтін қолдану */
+        body, button, input, select, textarea, h1, h2, h3, p, span, div {
+            font-family: "Times New Roman", Times, serif !important;
+        }
+        body {
+            background: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
+            min-height: 100vh;
+            user-select: none;
+        }
+        .shake {
+            animation: shake 0.3s ease-in-out;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        .pop {
+            animation: pop 0.25s ease-out;
+        }
+        @keyframes pop {
+            0% { transform: scale(0.85); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="p-3 md:p-6 flex flex-col items-center justify-between min-h-screen">
+
+    <!-- HEADER SECTION -->
+    <header class="text-center mb-3">
+        <h1 class="text-2xl md:text-3xl font-bold text-slate-800 drop-shadow-sm flex items-center justify-center gap-2">
+            <span>🧥</span> Төрт мезгіл және киімдер <span>👗</span>
+        </h1>
+        <p class="text-slate-700 text-sm md:text-base mt-1">
+            Киімдерді тиісті мезгілдегі бос орындарға (төртбұрыштарға) сүйреп апарыңыз!
+        </p>
+    </header>
+
+    <!-- MAIN GAME AREA -->
+    <main class="w-full max-w-7xl flex flex-col gap-5">
+
+        <!-- 4 SEASON COLUMNS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            
+            <!-- QYS (WINTER) -->
+            <div class="season-dropzone bg-blue-50/90 border-2 border-blue-400 rounded-xl p-3 flex flex-col shadow-md" data-season="qys">
+                <div class="flex items-center justify-between mb-2 bg-blue-600 text-white px-3 py-1 rounded-lg font-bold text-base shadow-sm">
+                    <span class="flex items-center gap-1"><i class="fa-regular fa-snowflake"></i> ҚЫС</span>
+                    <span class="text-xs bg-blue-800 px-2 py-0.5 rounded-md count-badge">0/4</span>
+                </div>
+                <div class="w-full h-24 mb-3 rounded-lg overflow-hidden bg-blue-200 flex items-center justify-center border border-blue-300 relative shadow-inner">
+                    <img src="images/qys.png" alt="Қыс мезгілі" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hidden flex-col items-center justify-center text-blue-700 text-xs font-bold p-2 text-center">
+                        <i class="fa-solid fa-image text-2xl mb-1 opacity-60"></i>
+                        <span>images/qys.png</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 flex-grow">
+                    <div class="drop-slot border-2 border-dashed border-blue-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                    <div class="drop-slot border-2 border-dashed border-blue-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                    <div class="drop-slot border-2 border-dashed border-blue-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                    <div class="drop-slot border-2 border-dashed border-blue-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                </div>
+            </div>
+
+            <!-- KOKTEM (SPRING) -->
+            <div class="season-dropzone bg-emerald-50/90 border-2 border-emerald-400 rounded-xl p-3 flex flex-col shadow-md" data-season="koktem">
+                <div class="flex items-center justify-between mb-2 bg-emerald-600 text-white px-3 py-1 rounded-lg font-bold text-base shadow-sm">
+                    <span class="flex items-center gap-1"><i class="fa-solid fa-seedling"></i> КӨКТЕМ</span>
+                    <span class="text-xs bg-emerald-800 px-2 py-0.5 rounded-md count-badge">0/4</span>
+                </div>
+                <div class="w-full h-24 mb-3 rounded-lg overflow-hidden bg-emerald-200 flex items-center justify-center border border-emerald-300 relative shadow-inner">
+                    <img src="images/koktem.png" alt="Көктем мезгілі" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hidden flex-col items-center justify-center text-emerald-700 text-xs font-bold p-2 text-center">
+                        <i class="fa-solid fa-image text-2xl mb-1 opacity-60"></i>
+                        <span>images/koktem.png</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 flex-grow">
+                    <div class="drop-slot border-2 border-dashed border-emerald-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                    <div class="drop-slot border-2 border-dashed border-emerald-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                    <div class="drop-slot border-2 border-dashed border-emerald-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                    <div class="drop-slot border-2 border-dashed border-emerald-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                </div>
+            </div>
+
+            <!-- JAZ (SUMMER) -->
+            <div class="season-dropzone bg-amber-50/90 border-2 border-amber-400 rounded-xl p-3 flex flex-col shadow-md" data-season="jaz">
+                <div class="flex items-center justify-between mb-2 bg-amber-500 text-white px-3 py-1 rounded-lg font-bold text-base shadow-sm">
+                    <span class="flex items-center gap-1"><i class="fa-solid fa-sun"></i> ЖАЗ</span>
+                    <span class="text-xs bg-amber-700 px-2 py-0.5 rounded-md count-badge">0/4</span>
+                </div>
+                <div class="w-full h-24 mb-3 rounded-lg overflow-hidden bg-amber-200 flex items-center justify-center border border-amber-300 relative shadow-inner">
+                    <img src="images/jaz.png" alt="Жаз мезгілі" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hidden flex-col items-center justify-center text-amber-800 text-xs font-bold p-2 text-center">
+                        <i class="fa-solid fa-image text-2xl mb-1 opacity-60"></i>
+                        <span>images/jaz.png</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 flex-grow">
+                    <div class="drop-slot border-2 border-dashed border-amber-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                    <div class="drop-slot border-2 border-dashed border-amber-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                    <div class="drop-slot border-2 border-dashed border-amber-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                    <div class="drop-slot border-2 border-dashed border-amber-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                </div>
+            </div>
+
+            <!-- KUZ (AUTUMN) -->
+            <div class="season-dropzone bg-orange-50/90 border-2 border-orange-400 rounded-xl p-3 flex flex-col shadow-md" data-season="kuz">
+                <div class="flex items-center justify-between mb-2 bg-orange-500 text-white px-3 py-1 rounded-lg font-bold text-base shadow-sm">
+                    <span class="flex items-center gap-1"><i class="fa-solid fa-leaf"></i> КҮЗ</span>
+                    <span class="text-xs bg-orange-700 px-2 py-0.5 rounded-md count-badge">0/4</span>
+                </div>
+                <div class="w-full h-24 mb-3 rounded-lg overflow-hidden bg-orange-200 flex items-center justify-center border border-orange-300 relative shadow-inner">
+                    <img src="images/kuz.png" alt="Күз мезгілі" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hidden flex-col items-center justify-center text-orange-800 text-xs font-bold p-2 text-center">
+                        <i class="fa-solid fa-image text-2xl mb-1 opacity-60"></i>
+                        <span>images/kuz.png</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 flex-grow">
+                    <div class="drop-slot border-2 border-dashed border-orange-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                    <div class="drop-slot border-2 border-dashed border-orange-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                    <div class="drop-slot border-2 border-dashed border-orange-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                    <div class="drop-slot border-2 border-dashed border-orange-400 rounded-lg bg-white/80 h-24 flex items-center justify-center p-1 transition-all"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SCORE BOARD, RESET AND NEXT PAGE BUTTONS -->
+        <div class="flex flex-wrap items-center justify-between bg-white/90 px-5 py-2.5 rounded-xl shadow-sm border border-slate-300 gap-3">
+            <div class="text-base font-bold text-slate-800">
+                Жиналған заттар: <span id="score-count" class="text-indigo-700 text-xl font-bold">0</span> / 16
+            </div>
+            <div class="flex items-center gap-3">
+                <!-- Қайталау батырмасы -->
+                <button id="reset-btn" class="bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-bold px-4 py-2 rounded-lg shadow transition-all flex items-center gap-2 transform active:scale-95 text-base">
+                    <i class="fa-solid fa-rotate"></i> Қайталау (🔄)
+                </button>
+                
+                <!-- Келесі бет ➡️ батырмасы -->
+                <button id="next-page-btn" onclick="window.location.href='next_page.html';" class="bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold px-4 py-2 rounded-lg shadow transition-all flex items-center gap-2 transform active:scale-95 text-base">
+                    Келесі бет ➡️
+                </button>
+            </div>
+        </div>
+
+        <!-- CLOTHES STORAGE POOL -->
+        <div class="bg-white border-2 border-slate-300 rounded-xl p-3 shadow-inner">
+            <div class="text-sm font-bold text-slate-700 mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-shirt text-indigo-600"></i> Киімдер қоймасы (Осы жерден сүйреңіз):
+            </div>
+            <div id="clothes-pool" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-8 gap-2 min-h-[140px] p-2 bg-slate-100 rounded-lg border border-dashed border-slate-300">
+                <!-- Clothes generated dynamically -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- AUDIO AND JAVASCRIPT LOGIC -->
+    <script>
+        // MP3 Sound files setup
+        const tinkSound = new Audio('audio/tink.mp3');
+        const errorSound = new Audio('audio/error.mp3');
+
+        function playSuccess() {
+            try {
+                tinkSound.currentTime = 0;
+                tinkSound.play();
+            } catch (e) { console.log('Audio error:', e); }
+        }
+
+        function playError() {
+            try {
+                errorSound.currentTime = 0;
+                errorSound.play();
+            } catch (e) { console.log('Audio error:', e); }
+        }
+
+        const clothesData = [
+            // Qys (Winter)
+            { id: 'winter_jacket', season: 'qys', name: '', img: 'images/winter_jacket.png', fallbackIcon: 'fa-vest text-blue-600' },
+            { id: 'winter_hat', season: 'qys', name: '', img: 'images/winter_hat.png', fallbackIcon: 'fa-hat-winter text-pink-500' },
+            { id: 'scarf', season: 'qys', name: '', img: 'images/scarf.png', fallbackIcon: 'fa-scarf text-cyan-600' },
+            { id: 'mittens', season: 'qys', name: '', img: 'images/mittens.png', fallbackIcon: 'fa-mitten text-pink-500' },
+
+            // Koktem (Spring)
+            { id: 'rain_boots', season: 'koktem', name: '', img: 'images/rain_boots.png', fallbackIcon: 'fa-shoe-prints text-emerald-600' },
+            { id: 'orange_coat', season: 'koktem', name: '', img: 'images/orange_coat.png', fallbackIcon: 'fa-shirt text-orange-500' },
+            { id: 'purple_hoodie', season: 'koktem', name: '', img: 'images/purple_hoodie.png', fallbackIcon: 'fa-shirt text-purple-500' },
+            { id: 'yellow_raincoat', season: 'koktem', name: '', img: 'images/yellow_raincoat.png', fallbackIcon: 'fa-vest text-yellow-500' },
+
+            // Jaz (Summer)
+            { id: 'yellow_tshirt', season: 'jaz', name: '', img: 'images/yellow_tshirt.png', fallbackIcon: 'fa-shirt text-yellow-500' },
+            { id: 'blue_shorts', season: 'jaz', name: '', img: 'images/blue_shorts.png', fallbackIcon: 'fa-vest-patches text-blue-500' },
+            { id: 'summer_dress', season: 'jaz', name: '', img: 'images/summer_dress.png', fallbackIcon: 'fa-child-dress text-orange-500' },
+            { id: 'baseball_cap', season: 'jaz', name: '', img: 'images/baseball_cap.png', fallbackIcon: 'fa-hat-cowboy text-green-600' },
+
+            // Kuz (Autumn)
+            { id: 'blue_sweater', season: 'kuz', name: '', img: 'images/blue_sweater.png', fallbackIcon: 'fa-shirt text-cyan-700' },
+            { id: 'blue_jeans', season: 'kuz', name: '', img: 'images/blue_jeans.png', fallbackIcon: 'fa-vest-patches text-blue-700' },
+            { id: 'blue_knit_hat', season: 'kuz', name: '', img: 'images/blue_knit_hat.png', fallbackIcon: 'fa-hat-winter text-blue-600' },
+            { id: 'autumn_sweater', season: 'kuz', name: '', img: 'images/autumn_sweater.png', fallbackIcon: 'fa-shirt text-amber-500' }
+        ];
+
+        const clothesPool = document.getElementById('clothes-pool');
+        const resetBtn = document.getElementById('reset-btn');
+        const scoreCountEl = document.getElementById('score-count');
+
+        let placedCount = 0;
+
+        function initGame() {
+            clothesPool.innerHTML = '';
+            placedCount = 0;
+            scoreCountEl.textContent = '0';
+
+            // Clear all drop slots
+            document.querySelectorAll('.drop-slot').forEach(slot => {
+                slot.innerHTML = '';
+                slot.classList.remove('bg-green-100', 'border-green-500');
+            });
+
+            // Reset season count badges
+            document.querySelectorAll('.count-badge').forEach(badge => {
+                badge.textContent = '0/4';
+            });
+
+            // Shuffle array randomly
+            const shuffled = [...clothesData].sort(() => Math.random() - 0.5);
+
+            shuffled.forEach(item => {
+                const el = document.createElement('div');
+                el.className = 'clothing-item bg-white border border-slate-300 hover:border-indigo-500 rounded-lg p-1.5 flex flex-col items-center justify-center cursor-grab active:cursor-grabbing shadow-sm hover:shadow transition-all h-24 w-full select-none';
+                el.setAttribute('draggable', 'true');
+                el.dataset.id = item.id;
+                el.dataset.season = item.season;
+
+                el.innerHTML = `
+                    <img src="${item.img}" alt="${item.name}" class="w-12 h-12 object-contain pointer-events-none mb-1" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <i class="fa-solid ${item.fallbackIcon} text-2xl pointer-events-none mb-1" style="display:none;"></i>
+                    <span class="text-xs text-slate-700 text-center line-clamp-1 pointer-events-none font-bold">${item.name}</span>
+                `;
+
+                // Desktop Drag & Drop
+                el.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.setData('text/plain', item.id);
+                    e.dataTransfer.setData('text/season', item.season);
+                    setTimeout(() => el.classList.add('opacity-40'), 0);
+                });
+
+                el.addEventListener('dragend', () => {
+                    el.classList.remove('opacity-40');
+                });
+
+                // Touch support for Mobile/Tablets
+                let touchClone = null;
+
+                el.addEventListener('touchstart', (e) => {
+                    touchClone = el.cloneNode(true);
+                    touchClone.style.position = 'fixed';
+                    touchClone.style.zIndex = '1000';
+                    touchClone.style.width = `${el.offsetWidth}px`;
+                    touchClone.style.height = `${el.offsetHeight}px`;
+                    touchClone.style.pointerEvents = 'none';
+                    touchClone.style.opacity = '0.9';
+                    document.body.appendChild(touchClone);
+
+                    const touch = e.touches[0];
+                    touchClone.style.left = `${touch.clientX - el.offsetWidth / 2}px`;
+                    touchClone.style.top = `${touch.clientY - el.offsetHeight / 2}px`;
+                }, { passive: true });
+
+                el.addEventListener('touchmove', (e) => {
+                    if (!touchClone) return;
+                    const touch = e.touches[0];
+                    touchClone.style.left = `${touch.clientX - el.offsetWidth / 2}px`;
+                    touchClone.style.top = `${touch.clientY - el.offsetHeight / 2}px`;
+                }, { passive: true });
+
+                el.addEventListener('touchend', (e) => {
+                    if (!touchClone) return;
+                    touchClone.remove();
+                    touchClone = null;
+
+                    const touch = e.changedTouches[0];
+                    const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
+                    
+                    if (!targetElement) return;
+
+                    let slot = targetElement.closest('.drop-slot');
+                    if (!slot) {
+                        const zone = targetElement.closest('.season-dropzone');
+                        if (zone) {
+                            const emptySlots = Array.from(zone.querySelectorAll('.drop-slot')).filter(s => s.children.length === 0);
+                            if (emptySlots.length > 0) slot = emptySlots[0];
+                        }
+                    }
+
+                    if (slot && slot.children.length === 0) {
+                        handleDrop(item.id, item.season, slot, el);
+                    }
+                });
+
+                clothesPool.appendChild(el);
+            });
+        }
+
+        // Setup dropzones
+        document.querySelectorAll('.season-dropzone').forEach(zone => {
+            zone.querySelectorAll('.drop-slot').forEach(slot => {
+                slot.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    slot.classList.add('bg-indigo-100', 'border-indigo-500');
+                });
+
+                slot.addEventListener('dragleave', () => {
+                    slot.classList.remove('bg-indigo-100', 'border-indigo-500');
+                });
+
+                slot.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    slot.classList.remove('bg-indigo-100', 'border-indigo-500');
+
+                    const itemId = e.dataTransfer.getData('text/plain');
+                    const itemSeason = e.dataTransfer.getData('text/season');
+                    const sourceEl = document.querySelector(`[data-id="${itemId}"]`);
+
+                    if (slot.children.length === 0 && sourceEl) {
+                        handleDrop(itemId, itemSeason, slot, sourceEl);
+                    }
+                });
+            });
+        });
+
+        function handleDrop(itemId, itemSeason, slot, sourceEl) {
+            const zone = slot.closest('.season-dropzone');
+            const targetSeason = zone.dataset.season;
+
+            if (itemSeason === targetSeason) {
+                // Correct match -> Play MP3 Success Sound & Move to slot
+                playSuccess();
+
+                slot.appendChild(sourceEl);
+                sourceEl.setAttribute('draggable', 'false');
+                sourceEl.classList.remove('cursor-grab', 'hover:shadow', 'opacity-40');
+                sourceEl.classList.add('cursor-default', 'bg-green-50', 'border-green-400', 'pop');
+                
+                slot.classList.add('bg-green-100', 'border-green-500');
+
+                placedCount++;
+                scoreCountEl.textContent = placedCount;
+
+                // Update badge counter
+                const badge = zone.querySelector('.count-badge');
+                const currentCount = zone.querySelectorAll('.drop-slot .clothing-item').length;
+                badge.textContent = `${currentCount}/4`;
+
+                // Win Modal
+                if (placedCount === 16) {
+                    setTimeout(() => {
+                        const modal = document.createElement('div');
+                        modal.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4';
+                        modal.innerHTML = `
+                            <div class="bg-white rounded-2xl p-6 max-w-sm text-center shadow-2xl pop border-2 border-indigo-500">
+                                <div class="text-5xl mb-3">🎉</div>
+                                <h2 class="text-2xl font-bold text-slate-800 mb-2">Жарайсың!</h2>
+                                <p class="text-slate-600 mb-5">Барлық киімдерді өз мезгілдеріне дұрыс орналастырдыңыз!</p>
+                                <button onclick="this.closest('.fixed').remove(); initGame();" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-2.5 rounded-lg shadow w-full text-base">
+                                    Қайта ойнау (🔄)
+                                </button>
+                            </div>
+                        `;
+                        document.body.appendChild(modal);
+                    }, 250);
+                }
+            } else {
+                // Wrong match -> Play MP3 Error Sound & Shake
+                playError();
+                sourceEl.classList.add('shake', 'border-red-500', 'bg-red-50');
+                setTimeout(() => {
+                    sourceEl.classList.remove('shake', 'border-red-500', 'bg-red-50');
+                }, 350);
+            }
+        }
+
+        resetBtn.addEventListener('click', () => {
+            initGame();
+        });
+
+        window.onload = initGame;
+    </script>
+</body>
+</html>
